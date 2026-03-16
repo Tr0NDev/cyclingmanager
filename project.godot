@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="cycling"
+run/main_scene="uid://dbg0a15ftfjpl"
+config/features=PackedStringArray("4.6", "Mobile")
+
+[autoload]
+
+Game="*uid://bft0y50ebmji6"
+ClassRider="*uid://dhac5crho1sc6"
+Utils="*uid://bkxpbebv6tc4o"
+ClassTeam="*uid://dsorthaypw1p"
+Turn="*uid://cdd05qqcp2c72"
+Mail="*uid://dmuokl41smp6s"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

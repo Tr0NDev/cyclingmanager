@@ -1,0 +1,57 @@
+[
+	{
+		"id": 0,
+		"type": "team",
+		"from": "Patrick Lefevere - Président",
+		"subject": "Bienvenue à la tête de l'équipe !",
+		"body": "Bonjour %manager_name%,\n\nNous sommes ravis de vous accueillir en tant que nouveau directeur sportif de l'équipe %team_name%.\n\nVotre mission pour cette saison :\n• Préparer vos coureurs pour le Tour de France\n• Gérer le budget de l'équipe avec soin\n• Recruter les meilleurs talents du peloton\n\nNous comptons sur vous pour amener l'équipe au sommet.\n\nBonne chance !\n\nPatrick Lefevere\nPrésident - %team_name%",
+		"date": "%date%",
+		"read": false,
+		"action": "",
+		"action_label": ""
+	},
+	{
+		"id": 1,
+		"type": "sponsor",
+		"from": "%sponsor_name%",
+		"subject": "Proposition de partenariat",
+		"body": "Bonjour,\n\n%sponsor_name% souhaite devenir partenaire de votre équipe pour la saison %season%.\n\nMontant proposé : %amount% € / an\nObjectif demandé : %objectif%\n\nCette offre est valable jusqu'à la fin du mois.\n\nCordialement,\nL'équipe %sponsor_name%",
+		"date": "%date%",
+		"read": false,
+		"action": "sponsors",
+		"action_label": "Voir les sponsors"
+	},
+	{
+		"id": 2,
+		"type": "notif",
+		"from": "Staff médical",
+		"subject": "Blessure : %rider_name%",
+		"body": "Bonjour,\n\n%rider_name% s'est blessé lors de %event%.\n\nDiagnostic : %diagnosis%\nDurée d'absence estimée : %days% jours.\n\nIl sera indisponible jusqu'au %return_date%.\n\nCordialement,\nDr. %doctor_name%\nMédecin de l'équipe",
+		"date": "%date%",
+		"read": false,
+		"action": "myteam",
+		"action_label": "Voir l'équipe"
+	},
+	{
+		"id": 3,
+		"type": "notif",
+		"from": "Département juridique",
+		"subject": "Contrat expirant bientôt : %rider_name%",
+		"body": "Bonjour,\n\nNous vous informons que le contrat de %rider_name% expire le 31/12/%year%.\n\nSalaire actuel : %salary% € / an\n\nNous vous recommandons d'entamer les négociations dans les plus brefs délais afin d'éviter de perdre ce coureur en fin de saison.\n\nCordialement,\nDépartement juridique",
+		"date": "%date%",
+		"read": false,
+		"action": "myteam",
+		"action_label": "Voir l'équipe"
+	},
+	{
+		"id": 4,
+		"type": "transfer",
+		"from": "%from_team%",
+		"subject": "Offre de transfert pour %rider_name%",
+		"body": "Bonjour,\n\nL'équipe %from_team% est intéressée par %rider_name% et soumet l'offre suivante :\n\nMontant proposé : %amount% €\nDurée du contrat : %contract_years% ans\nSalaire proposé : %salary% € / an\n\nMerci de nous faire part de votre décision avant le %deadline%.\n\nCordialement,\n%contact_name%\nDirecteur sportif - %from_team%",
+		"date": "%date%",
+		"read": false,
+		"action": "transfers",
+		"action_label": "Voir les transferts"
+	}
+]

@@ -1,0 +1,20 @@
+{
+	"realname": "decathlon-cma-cgm",
+	"name": "Decathlon CMA CGM",
+	"short_name": "DCC",
+	"budget" : 25000000,
+	"budgettrans" : 3000000,
+	"budgetsalary" : 18000000,
+	"popularity" : 60,
+	"uci" : 3000,
+	"country" : "France",
+	"category" : "WorldTour",
+	"sponsors" : {
+		"Decathlon" : [10000000, "Principal", "5-GT"],
+		"CMA CGM" : [5000000, "Principal", "4-star"],
+		"Adecco" : [500000, "Secondaire", ""]
+	},
+	"transfer_budget" : 30,
+	"objectives" : ["Tour de France", "Paris-Roubaix"],
+	"director" : "Patrick Caca"
+}

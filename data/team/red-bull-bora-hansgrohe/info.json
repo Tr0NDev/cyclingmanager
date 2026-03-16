@@ -1,0 +1,19 @@
+{
+	"realname": "red-bull-bora-hansgrohe",
+	"name": "Red Bull - Bora - Hansgrohe",
+	"short_name": "RBH",
+	"budget" : 45000000,
+	"budgettrans" : 15000000,
+	"budgetsalary" : 20000000,
+	"popularity" : 85,
+	"uci" : 8500,
+	"country" : "Germany",
+	"category" : "WorldTour",
+	"sponsors" : {
+		"Red Bull" : [10000000, "Principal", "3-GT"],
+		"Bora" : [3000000, "Principal", ""],
+		"Hansgrohe" : [2000000, "Principal", ""]
+	},
+	"objectives" : ["Tour de France", "Vuelta a España", "Liège-Bastogne-Liège"],
+	"director" : "Ralph Denk"
+}

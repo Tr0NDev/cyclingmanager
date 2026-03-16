@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dbg0a15ftfjpl"]
+
+[ext_resource type="Script" uid="uid://cm444cr7aclyv" path="res://Scene/Jeux/myteam.gd" id="1_lcvb1"]
+[ext_resource type="Script" uid="uid://cktaupypibfv6" path="res://Scene/Jeux/menu.gd" id="1_mgfdk"]
+[ext_resource type="Script" uid="uid://crej86dxcrn8f" path="res://Scene/Jeux/date.gd" id="1_ppnlj"]
+[ext_resource type="Script" uid="uid://bft0y50ebmji6" path="res://Scene/Jeux/game.gd" id="2_v8b1e"]
+[ext_resource type="Script" uid="uid://duqtpu8d0ypaw" path="res://Scene/Jeux/rider.gd" id="3_3uog1"]
+
+[node name="Jeux" type="Control" unique_id=814163212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fond" type="ColorRect" parent="." unique_id=1573901514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.29411766, 0.29411766, 0.4392157, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1824231236]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=339055812]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=558758713]
+layout_mode = 2
+script = ExtResource("1_mgfdk")
+
+[node name="Myteam" type="Button" parent="CanvasLayer/HBoxContainer/Menu" unique_id=1566362363]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "My Team"
+
+[node name="Myteam" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=873380734]
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("1_lcvb1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/Myteam" unique_id=24378401]
+layout_mode = 0
+offset_top = 147.0
+offset_right = 1071.0
+offset_bottom = 650.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Myteam/ScrollContainer" unique_id=2076917175]
+layout_mode = 2
+
+[node name="Rider" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=439956682]
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("3_3uog1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Rider" unique_id=815725451]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_Suivant" type="Button" parent="CanvasLayer" unique_id=786176111]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -66.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Suivant"
+
+[node name="Game" type="Node" parent="." unique_id=133010238]
+script = ExtResource("2_v8b1e")
+
+[node name="Date" type="Label" parent="." unique_id=1459935180]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.0
+offset_right = 83.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+script = ExtResource("1_ppnlj")
+
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/Menu/Myteam" to="CanvasLayer/HBoxContainer/Menu" method="_on_myteam_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button_Suivant" to="Date" method="_on_button_suivant_button_down"]

@@ -1,0 +1,21 @@
+{
+	"realname": "alpecin-premier-tech",
+	"name": "Alpecin-Premier Tech",
+	"short_name": "APT",
+	"budget" : 25000000,
+	"budgettrans" : 6000000,
+	"budgetsalary" : 18000000,
+	"popularity": 75,
+	"uci": 8500,
+	"country": "Belgique",
+	"category": "WorldTour",
+	"sponsors": {
+		"Alpecin": [8000000, "Principal", "win-mon"],
+		"Premier Tech": [6000000, "Principal", "5-GT"],
+		"Dura Ace": [1500000, "Secondaire", ""],
+		"Canyon": [1000000, "Secondaire", ""]
+	},
+	"transfer_budget": 25,
+	"objectives": ["Milan-Sanremo", "Tour des Flandres", "Paris-Roubaix"],
+	"director": "Christoph Roodhooft"
+}
