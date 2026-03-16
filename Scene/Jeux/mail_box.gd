@@ -8,6 +8,7 @@ extends Panel
 @onready var detail_body := $HSplit/DetailPanel/ScrollContainer/VBoxContainer/Body
 @onready var filter_row := $FilterRow
 @onready var del_btn := $HSplit/DetailPanel/DelMail
+@onready var read_all_btn := $ReadAll
 
 var _messages: Array = []
 var _filter:   String = "all"
@@ -23,12 +24,19 @@ const TYPE_ICONS := {
 
 
 func _ready() -> void:
-	_build_filter_buttons()
 	detail_panel.visible = false
 	detail_body.autowrap_mode = TextServer.AUTOWRAP_WORD
 	detail_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	detail_body.custom_minimum_size = Vector2(100, 0)
 	del_btn.connect("pressed", _on_delete_pressed)
+	read_all_btn.connect("pressed", _on_read_all)
+
+
+func _on_read_all() -> void:
+	for msg in _messages:
+		msg["read"] = true
+	save_mails()
+	_display()
 
 func _process(delta: float) -> void:
 	_update_badge()
@@ -117,21 +125,9 @@ func send_from_template(template_id: int, values: Dictionary) -> void:
 	add_message(t["type"], t["from"], t["subject"], t["body"], t["date"], t.get("action", ""), t.get("action_label", ""))
 
 
-func _build_filter_buttons() -> void:
-	for child in filter_row.get_children():
-		child.queue_free()
-	var filters := [["all", "Tous"], ["transfer", "Transferts"], ["team", "Équipe"], ["notif", "Notifs"], ["sponsor", "Sponsors"]]
-	for f in filters:
-		var btn := Button.new()
-		btn.text = f[1]
-		btn.flat = _filter != f[0]
-		btn.connect("pressed", func(): _on_filter(f[0]))
-		filter_row.add_child(btn)
-
 
 func _on_filter(f: String) -> void:
 	_filter = f
-	_build_filter_buttons()
 	_display()
 
 

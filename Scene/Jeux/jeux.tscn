@@ -205,6 +205,7 @@ offset_right = 587.0
 offset_bottom = 138.0
 
 [node name="Finance" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=2093559661]
+visible = false
 layout_mode = 2
 script = ExtResource("5_2pv2p")
 
@@ -359,6 +360,15 @@ offset_bottom = 48.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 25
 text = "Delete"
+
+[node name="ReadAll" type="Button" parent="CanvasLayer/HBoxContainer/MailBox" unique_id=1039914616]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 44.0
+offset_right = 17.0
+offset_bottom = 75.0
+text = "Read All
+"
 
 [node name="Meeting" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=1594714757]
 visible = false
