@@ -1,0 +1,36 @@
+{
+	"realname": "team-picnic-postnl",
+	"name": "Team Picnic-PostNL",
+	"short_name": "PPN",
+	"budget": 14000000,
+	"budgettrans": 2500000,
+	"budgetsalary": 10000000,
+	"popularity": 55,
+	"uci": 3500,
+	"country": "Netherlands",
+	"category": "WorldTour",
+	"sponsors": {
+		"Picnic": [
+			6000000,
+			"Principal",
+			"win-mon"
+		],
+		"PostNL": [
+			4000000,
+			"Principal",
+			"5-GT"
+		],
+		"Cervélo": [
+			700000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 20,
+	"objectives": [
+		"Tour des Flandres",
+		"Amstel Gold Race",
+		"Paris-Roubaix"
+	],
+	"director": "Addy Engels"
+}

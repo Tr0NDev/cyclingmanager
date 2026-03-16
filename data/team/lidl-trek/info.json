@@ -1,0 +1,36 @@
+{
+	"realname": "lidl-trek",
+	"name": "Lidl-Trek",
+	"short_name": "LTK",
+	"budget": 35000000,
+	"budgettrans": 7000000,
+	"budgetsalary": 25000000,
+	"popularity": 85,
+	"uci": 10000,
+	"country": "United States",
+	"category": "WorldTour",
+	"sponsors": {
+		"Lidl": [
+			15000000,
+			"Principal",
+			"win-GT"
+		],
+		"Trek": [
+			8000000,
+			"Principal",
+			"5-GT"
+		],
+		"Bontrager": [
+			1500000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 25,
+	"objectives": [
+		"Tour de France",
+		"Tour des Flandres",
+		"Milan-Sanremo"
+	],
+	"director": "Luca Guercilena"
+}

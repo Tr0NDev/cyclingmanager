@@ -1,0 +1,36 @@
+{
+	"realname": "ineos-grenadiers",
+	"name": "INEOS Grenadiers",
+	"short_name": "ING",
+	"budget": 45000000,
+	"budgettrans": 10000000,
+	"budgetsalary": 30000000,
+	"popularity": 90,
+	"uci": 12000,
+	"country": "Great Britain",
+	"category": "WorldTour",
+	"sponsors": {
+		"INEOS": [
+			20000000,
+			"Principal",
+			"win-GT"
+		],
+		"Grenadiers": [
+			8000000,
+			"Principal",
+			"5-GT"
+		],
+		"Pinarello": [
+			2000000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 30,
+	"objectives": [
+		"Tour de France",
+		"Giro d'Italia",
+		"Vuelta a España"
+	],
+	"director": "Rod Ellingworth"
+}

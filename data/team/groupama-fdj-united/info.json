@@ -1,0 +1,36 @@
+{
+	"realname": "groupama-fdj-united",
+	"name": "Groupama-FDJ United",
+	"short_name": "GFU",
+	"budget": 20000000,
+	"budgettrans": 3500000,
+	"budgetsalary": 15000000,
+	"popularity": 70,
+	"uci": 5000,
+	"country": "France",
+	"category": "WorldTour",
+	"sponsors": {
+		"Groupama": [
+			8000000,
+			"Principal",
+			"5-GT"
+		],
+		"FDJ": [
+			6000000,
+			"Principal",
+			"win-mon"
+		],
+		"United": [
+			1000000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 25,
+	"objectives": [
+		"Tour de France",
+		"Paris-Nice",
+		"Critérium du Dauphiné"
+	],
+	"director": "Marc Madiot"
+}

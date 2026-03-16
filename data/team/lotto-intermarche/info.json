@@ -1,0 +1,36 @@
+{
+	"realname": "lotto-intermarche",
+	"name": "Lotto-Intermarché",
+	"short_name": "LIN",
+	"budget": 16000000,
+	"budgettrans": 3000000,
+	"budgetsalary": 12000000,
+	"popularity": 60,
+	"uci": 4000,
+	"country": "Belgium",
+	"category": "WorldTour",
+	"sponsors": {
+		"Lotto": [
+			7000000,
+			"Principal",
+			"win-mon"
+		],
+		"Intermarché": [
+			5000000,
+			"Principal",
+			"5-GT"
+		],
+		"Wanty": [
+			800000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 22,
+	"objectives": [
+		"Tour des Flandres",
+		"Paris-Roubaix",
+		"Gand-Wevelgem"
+	],
+	"director": "John Lelangue"
+}

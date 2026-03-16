@@ -1,0 +1,36 @@
+{
+	"realname": "ef-education-easypost",
+	"name": "EF Education-EasyPost",
+	"short_name": "EFE",
+	"budget": 18000000,
+	"budgettrans": 3500000,
+	"budgetsalary": 13000000,
+	"popularity": 65,
+	"uci": 5500,
+	"country": "United States",
+	"category": "WorldTour",
+	"sponsors": {
+		"EF Education": [
+			7000000,
+			"Principal",
+			"5-GT"
+		],
+		"EasyPost": [
+			4000000,
+			"Principal",
+			"win-mon"
+		],
+		"Cannondale": [
+			1000000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 25,
+	"objectives": [
+		"Tour de France",
+		"Liège-Bastogne-Liège",
+		"Il Lombardia"
+	],
+	"director": "Jonathan Vaughters"
+}

@@ -1,0 +1,36 @@
+{
+	"realname": "soudal-quick-step",
+	"name": "Soudal Quick-Step",
+	"short_name": "SQS",
+	"budget": 32000000,
+	"budgettrans": 7000000,
+	"budgetsalary": 22000000,
+	"popularity": 88,
+	"uci": 11000,
+	"country": "Belgium",
+	"category": "WorldTour",
+	"sponsors": {
+		"Soudal": [
+			13000000,
+			"Principal",
+			"win-mon"
+		],
+		"Quick-Step": [
+			8000000,
+			"Principal",
+			"5-GT"
+		],
+		"Specialized": [
+			2000000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 28,
+	"objectives": [
+		"Tour des Flandres",
+		"Paris-Roubaix",
+		"Tour de France"
+	],
+	"director": "Patrick Lefevere"
+}

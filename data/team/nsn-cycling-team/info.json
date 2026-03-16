@@ -1,0 +1,36 @@
+{
+	"realname": "nsn-cycling-team",
+	"name": "NSN Cycling Team",
+	"short_name": "NSN",
+	"budget": 17000000,
+	"budgettrans": 3000000,
+	"budgetsalary": 12000000,
+	"popularity": 62,
+	"uci": 4500,
+	"country": "Israel",
+	"category": "WorldTour",
+	"sponsors": {
+		"NSN": [
+			7000000,
+			"Principal",
+			"win-mon"
+		],
+		"Premier Tech": [
+			4000000,
+			"Principal",
+			"5-GT"
+		],
+		"Pinarello": [
+			800000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 22,
+	"objectives": [
+		"Milan-Sanremo",
+		"Tour des Flandres",
+		"Giro d'Italia"
+	],
+	"director": "Kjell Carlström"
+}

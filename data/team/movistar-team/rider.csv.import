@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://002pmvt5ls8f"
+
+[deps]
+
+files=["res://data/team/movistar-team/rider.lastname.translation", "res://data/team/movistar-team/rider.birthdate.translation", "res://data/team/movistar-team/rider.team.translation", "res://data/team/movistar-team/rider.weight.translation", "res://data/team/movistar-team/rider.length.translation", "res://data/team/movistar-team/rider.cob.translation", "res://data/team/movistar-team/rider.hll.translation", "res://data/team/movistar-team/rider.mtn.translation", "res://data/team/movistar-team/rider.gc.translation", "res://data/team/movistar-team/rider.itt.translation", "res://data/team/movistar-team/rider.spr.translation", "res://data/team/movistar-team/rider.maxcob.translation", "res://data/team/movistar-team/rider.maxhll.translation", "res://data/team/movistar-team/rider.maxmtn.translation", "res://data/team/movistar-team/rider.maxgc.translation", "res://data/team/movistar-team/rider.maxitt.translation", "res://data/team/movistar-team/rider.maxspr.translation", "res://data/team/movistar-team/rider.happyness.translation", "res://data/team/movistar-team/rider.form.translation", "res://data/team/movistar-team/rider.salary.translation", "res://data/team/movistar-team/rider.contract.translation", "res://data/team/movistar-team/rider.recovery.translation", "res://data/team/movistar-team/rider.injury.translation", "res://data/team/movistar-team/rider.media.translation", "res://data/team/movistar-team/rider.flt.translation", "res://data/team/movistar-team/rider.maxflt.translation", "res://data/team/movistar-team/rider.or.translation", "res://data/team/movistar-team/rider.maxor.translation", "res://data/team/movistar-team/rider.ttl.translation", "res://data/team/movistar-team/rider.maxttl.translation", "res://data/team/movistar-team/rider.tts.translation", "res://data/team/movistar-team/rider.maxtts.translation"]
+
+source_file="res://data/team/movistar-team/rider.csv"
+dest_files=["res://data/team/movistar-team/rider.lastname.translation", "res://data/team/movistar-team/rider.birthdate.translation", "res://data/team/movistar-team/rider.team.translation", "res://data/team/movistar-team/rider.weight.translation", "res://data/team/movistar-team/rider.length.translation", "res://data/team/movistar-team/rider.cob.translation", "res://data/team/movistar-team/rider.hll.translation", "res://data/team/movistar-team/rider.mtn.translation", "res://data/team/movistar-team/rider.gc.translation", "res://data/team/movistar-team/rider.itt.translation", "res://data/team/movistar-team/rider.spr.translation", "res://data/team/movistar-team/rider.maxcob.translation", "res://data/team/movistar-team/rider.maxhll.translation", "res://data/team/movistar-team/rider.maxmtn.translation", "res://data/team/movistar-team/rider.maxgc.translation", "res://data/team/movistar-team/rider.maxitt.translation", "res://data/team/movistar-team/rider.maxspr.translation", "res://data/team/movistar-team/rider.happyness.translation", "res://data/team/movistar-team/rider.form.translation", "res://data/team/movistar-team/rider.salary.translation", "res://data/team/movistar-team/rider.contract.translation", "res://data/team/movistar-team/rider.recovery.translation", "res://data/team/movistar-team/rider.injury.translation", "res://data/team/movistar-team/rider.media.translation", "res://data/team/movistar-team/rider.flt.translation", "res://data/team/movistar-team/rider.maxflt.translation", "res://data/team/movistar-team/rider.or.translation", "res://data/team/movistar-team/rider.maxor.translation", "res://data/team/movistar-team/rider.ttl.translation", "res://data/team/movistar-team/rider.maxttl.translation", "res://data/team/movistar-team/rider.tts.translation", "res://data/team/movistar-team/rider.maxtts.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

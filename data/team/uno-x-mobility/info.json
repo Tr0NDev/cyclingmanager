@@ -1,0 +1,36 @@
+{
+	"realname": "uno-x-mobility",
+	"name": "Uno-X Mobility",
+	"short_name": "UXM",
+	"budget": 10000000,
+	"budgettrans": 2000000,
+	"budgetsalary": 7000000,
+	"popularity": 50,
+	"uci": 2500,
+	"country": "Norway",
+	"category": "WorldTour",
+	"sponsors": {
+		"Uno-X": [
+			4500000,
+			"Principal",
+			"win-mon"
+		],
+		"Mobility": [
+			2500000,
+			"Principal",
+			"5-GT"
+		],
+		"Ridley": [
+			500000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 22,
+	"objectives": [
+		"Tour de Norvège",
+		"Amstel Gold Race",
+		"Paris-Roubaix"
+	],
+	"director": "Jens Haugland"
+}

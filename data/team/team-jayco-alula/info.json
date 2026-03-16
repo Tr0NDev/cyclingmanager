@@ -1,0 +1,36 @@
+{
+	"realname": "team-jayco-alula",
+	"name": "Team Jayco-AlUla",
+	"short_name": "JAY",
+	"budget": 22000000,
+	"budgettrans": 4000000,
+	"budgetsalary": 16000000,
+	"popularity": 72,
+	"uci": 6000,
+	"country": "Australia",
+	"category": "WorldTour",
+	"sponsors": {
+		"Jayco": [
+			9000000,
+			"Principal",
+			"5-GT"
+		],
+		"AlUla": [
+			7000000,
+			"Principal",
+			"win-GT"
+		],
+		"Giant": [
+			1200000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 22,
+	"objectives": [
+		"Tour de France",
+		"Giro d'Italia",
+		"Milan-Sanremo"
+	],
+	"director": "Matt White"
+}

@@ -1,0 +1,36 @@
+{
+	"realname": "uae-team-emirates-xrg",
+	"name": "UAE Team Emirates-XRG",
+	"short_name": "UAE",
+	"budget": 50000000,
+	"budgettrans": 12000000,
+	"budgetsalary": 32000000,
+	"popularity": 95,
+	"uci": 15000,
+	"country": "United Arab Emirates",
+	"category": "WorldTour",
+	"sponsors": {
+		"UAE Emirates": [
+			22000000,
+			"Principal",
+			"win-GT"
+		],
+		"XRG": [
+			10000000,
+			"Principal",
+			"5-GT"
+		],
+		"Colnago": [
+			2500000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 30,
+	"objectives": [
+		"Tour de France",
+		"Giro d'Italia",
+		"Tour des Flandres"
+	],
+	"director": "Mauro Gianetti"
+}

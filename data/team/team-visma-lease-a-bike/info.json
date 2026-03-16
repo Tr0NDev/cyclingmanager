@@ -1,0 +1,36 @@
+{
+	"realname": "team-visma-lease-a-bike",
+	"name": "Team Visma | Lease a Bike",
+	"short_name": "VLB",
+	"budget": 42000000,
+	"budgettrans": 9000000,
+	"budgetsalary": 28000000,
+	"popularity": 92,
+	"uci": 13000,
+	"country": "Netherlands",
+	"category": "WorldTour",
+	"sponsors": {
+		"Visma": [
+			18000000,
+			"Principal",
+			"win-GT"
+		],
+		"Lease a Bike": [
+			10000000,
+			"Principal",
+			"5-GT"
+		],
+		"Shimano": [
+			2000000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 28,
+	"objectives": [
+		"Tour de France",
+		"Vuelta a España",
+		"Tour des Flandres"
+	],
+	"director": "Richard Plugge"
+}

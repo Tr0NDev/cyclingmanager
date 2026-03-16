@@ -1,0 +1,36 @@
+{
+	"realname": "bahrain-victorious",
+	"name": "Bahrain Victorious",
+	"short_name": "BV",
+	"budget": 22000000,
+	"budgettrans": 4000000,
+	"budgetsalary": 16000000,
+	"popularity": 70,
+	"uci": 6500,
+	"country": "Bahrain",
+	"category": "WorldTour",
+	"sponsors": {
+		"Bahrain": [
+			9000000,
+			"Principal",
+			"5-GT"
+		],
+		"Victorious": [
+			5000000,
+			"Principal",
+			"win-GT"
+		],
+		"Canyon": [
+			1000000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 25,
+	"objectives": [
+		"Tour de France",
+		"Giro d'Italia",
+		"Vuelta a España"
+	],
+	"director": "Milan Erzen"
+}

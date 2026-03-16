@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ckriji7y80h3q"
+
+[deps]
+
+files=["res://data/team/lidl-trek/rider.lastname.translation", "res://data/team/lidl-trek/rider.birthdate.translation", "res://data/team/lidl-trek/rider.team.translation", "res://data/team/lidl-trek/rider.weight.translation", "res://data/team/lidl-trek/rider.length.translation", "res://data/team/lidl-trek/rider.cob.translation", "res://data/team/lidl-trek/rider.hll.translation", "res://data/team/lidl-trek/rider.mtn.translation", "res://data/team/lidl-trek/rider.gc.translation", "res://data/team/lidl-trek/rider.itt.translation", "res://data/team/lidl-trek/rider.spr.translation", "res://data/team/lidl-trek/rider.maxcob.translation", "res://data/team/lidl-trek/rider.maxhll.translation", "res://data/team/lidl-trek/rider.maxmtn.translation", "res://data/team/lidl-trek/rider.maxgc.translation", "res://data/team/lidl-trek/rider.maxitt.translation", "res://data/team/lidl-trek/rider.maxspr.translation", "res://data/team/lidl-trek/rider.happyness.translation", "res://data/team/lidl-trek/rider.form.translation", "res://data/team/lidl-trek/rider.salary.translation", "res://data/team/lidl-trek/rider.contract.translation", "res://data/team/lidl-trek/rider.recovery.translation", "res://data/team/lidl-trek/rider.injury.translation", "res://data/team/lidl-trek/rider.media.translation", "res://data/team/lidl-trek/rider.flt.translation", "res://data/team/lidl-trek/rider.maxflt.translation", "res://data/team/lidl-trek/rider.or.translation", "res://data/team/lidl-trek/rider.maxor.translation", "res://data/team/lidl-trek/rider.ttl.translation", "res://data/team/lidl-trek/rider.maxttl.translation", "res://data/team/lidl-trek/rider.tts.translation", "res://data/team/lidl-trek/rider.maxtts.translation"]
+
+source_file="res://data/team/lidl-trek/rider.csv"
+dest_files=["res://data/team/lidl-trek/rider.lastname.translation", "res://data/team/lidl-trek/rider.birthdate.translation", "res://data/team/lidl-trek/rider.team.translation", "res://data/team/lidl-trek/rider.weight.translation", "res://data/team/lidl-trek/rider.length.translation", "res://data/team/lidl-trek/rider.cob.translation", "res://data/team/lidl-trek/rider.hll.translation", "res://data/team/lidl-trek/rider.mtn.translation", "res://data/team/lidl-trek/rider.gc.translation", "res://data/team/lidl-trek/rider.itt.translation", "res://data/team/lidl-trek/rider.spr.translation", "res://data/team/lidl-trek/rider.maxcob.translation", "res://data/team/lidl-trek/rider.maxhll.translation", "res://data/team/lidl-trek/rider.maxmtn.translation", "res://data/team/lidl-trek/rider.maxgc.translation", "res://data/team/lidl-trek/rider.maxitt.translation", "res://data/team/lidl-trek/rider.maxspr.translation", "res://data/team/lidl-trek/rider.happyness.translation", "res://data/team/lidl-trek/rider.form.translation", "res://data/team/lidl-trek/rider.salary.translation", "res://data/team/lidl-trek/rider.contract.translation", "res://data/team/lidl-trek/rider.recovery.translation", "res://data/team/lidl-trek/rider.injury.translation", "res://data/team/lidl-trek/rider.media.translation", "res://data/team/lidl-trek/rider.flt.translation", "res://data/team/lidl-trek/rider.maxflt.translation", "res://data/team/lidl-trek/rider.or.translation", "res://data/team/lidl-trek/rider.maxor.translation", "res://data/team/lidl-trek/rider.ttl.translation", "res://data/team/lidl-trek/rider.maxttl.translation", "res://data/team/lidl-trek/rider.tts.translation", "res://data/team/lidl-trek/rider.maxtts.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

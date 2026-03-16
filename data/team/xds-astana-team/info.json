@@ -1,0 +1,36 @@
+{
+	"realname": "xds-astana-team",
+	"name": "XDS Astana Team",
+	"short_name": "XAS",
+	"budget": 16000000,
+	"budgettrans": 3000000,
+	"budgetsalary": 11000000,
+	"popularity": 60,
+	"uci": 4000,
+	"country": "Kazakhstan",
+	"category": "WorldTour",
+	"sponsors": {
+		"XDS": [
+			7000000,
+			"Principal",
+			"win-GT"
+		],
+		"Astana": [
+			5000000,
+			"Principal",
+			"5-GT"
+		],
+		"Wilier": [
+			700000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 22,
+	"objectives": [
+		"Giro d'Italia",
+		"Tour de France",
+		"Tour d'Espagne"
+	],
+	"director": "Alexander Vinokourov"
+}

@@ -1,0 +1,36 @@
+{
+	"realname": "movistar-team",
+	"name": "Movistar Team",
+	"short_name": "MOV",
+	"budget": 18000000,
+	"budgettrans": 3000000,
+	"budgetsalary": 13000000,
+	"popularity": 72,
+	"uci": 5000,
+	"country": "Spain",
+	"category": "WorldTour",
+	"sponsors": {
+		"Movistar": [
+			9000000,
+			"Principal",
+			"5-GT"
+		],
+		"Telefónica": [
+			4000000,
+			"Principal",
+			"win-GT"
+		],
+		"Canyon": [
+			800000,
+			"Secondaire",
+			""
+		]
+	},
+	"transfer_budget": 20,
+	"objectives": [
+		"Vuelta a España",
+		"Tour de France",
+		"Liège-Bastogne-Liège"
+	],
+	"director": "Eusebio Unzué"
+}
