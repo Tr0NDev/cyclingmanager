@@ -15,6 +15,10 @@
 [ext_resource type="Script" uid="uid://bkwjn582yt0d3" path="res://Scene/Jeux/mail_box.gd" id="8_0xkaa"]
 [ext_resource type="Script" uid="uid://d0q0yr71mori0" path="res://Scene/Jeux/meeting.gd" id="9_4ly8f"]
 [ext_resource type="Script" uid="uid://dsorthaypw1p" path="res://Scene/Jeux/class_team.gd" id="10_mdugl"]
+[ext_resource type="Script" uid="uid://bs2mgx1jmfmlo" path="res://Scene/Jeux/calendar.gd" id="10_y260q"]
+[ext_resource type="Script" uid="uid://bxd41jdwyjb3e" path="res://Scene/Jeux/race.gd" id="11_8uy4l"]
+[ext_resource type="Script" uid="uid://hvjpf0gfh0q5" path="res://Scene/Jeux/race_result.gd" id="12_6ri40"]
+[ext_resource type="Script" uid="uid://c70xyxyhsoaym" path="res://Scene/Jeux/class_race.gd" id="15_8s0xj"]
 [ext_resource type="Script" uid="uid://dmuokl41smp6s" path="res://Scene/Jeux/mail.gd" id="15_cecc8"]
 [ext_resource type="Script" uid="uid://cdd05qqcp2c72" path="res://Scene/Jeux/turn.gd" id="16_2k0ke"]
 
@@ -84,6 +88,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Meeting"
 
+[node name="Calendar" type="Button" parent="CanvasLayer/HBoxContainer/Menu" unique_id=1683768425]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Calendar"
+
+[node name="RaceResult" type="Button" parent="CanvasLayer/HBoxContainer/Menu" unique_id=393955651]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Result"
+
 [node name="Team" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=873380734]
 visible = false
 layout_mode = 2
@@ -128,6 +142,16 @@ offset_left = 510.0
 offset_top = 218.0
 offset_right = 617.0
 offset_bottom = 258.0
+
+[node name="Mercato" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/Team" unique_id=649290847]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 32.0
+offset_right = 833.0
+offset_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Team/Mercato" unique_id=1621053815]
+layout_mode = 2
 
 [node name="Rider" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=439956682]
 visible = false
@@ -413,6 +437,96 @@ layout_mode = 2
 layout_mode = 2
 text = "Cancel"
 
+[node name="Calendar" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=777992890]
+visible = false
+layout_mode = 2
+script = ExtResource("10_y260q")
+
+[node name="FilterRow" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Calendar" unique_id=1765229526]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 110.0
+offset_right = 819.0
+offset_bottom = 155.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/Calendar" unique_id=115598967]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 156.0
+offset_right = 900.0
+offset_bottom = 594.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Calendar/ScrollContainer" unique_id=1706860149]
+layout_mode = 2
+
+[node name="Race" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=455120644]
+visible = false
+layout_mode = 2
+script = ExtResource("11_8uy4l")
+
+[node name="RaceLogo" type="TextureRect" parent="CanvasLayer/HBoxContainer/Race" unique_id=774510554]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 58.0
+offset_right = 99.0
+offset_bottom = 176.0
+
+[node name="Id" type="Label" parent="CanvasLayer/HBoxContainer/Race" unique_id=1428470514]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 197.0
+offset_right = 159.0
+offset_bottom = 317.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Race" unique_id=2067639814]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 81.0
+offset_right = 908.0
+offset_bottom = 605.0
+
+[node name="RaceResult" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=1419472021]
+visible = false
+layout_mode = 2
+script = ExtResource("12_6ri40")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/RaceResult" unique_id=438606069]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 79.0
+offset_right = 921.0
+offset_bottom = 626.0
+
+[node name="Title" type="Label" parent="CanvasLayer/HBoxContainer/RaceResult/VBox" unique_id=678895497]
+layout_mode = 2
+
+[node name="HSplit" type="HSplitContainer" parent="CanvasLayer/HBoxContainer/RaceResult/VBox" unique_id=1100766755]
+layout_mode = 2
+
+[node name="LogPanel" type="Panel" parent="CanvasLayer/HBoxContainer/RaceResult/VBox/HSplit" unique_id=1124661702]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/RaceResult/VBox/HSplit/LogPanel" unique_id=336671231]
+layout_mode = 0
+offset_left = 9.0
+offset_right = 534.0
+offset_bottom = 487.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/RaceResult/VBox/HSplit/LogPanel/ScrollContainer" unique_id=1020047302]
+layout_mode = 2
+
+[node name="ResultPanel" type="Panel" parent="CanvasLayer/HBoxContainer/RaceResult/VBox/HSplit" unique_id=1181023980]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/RaceResult/VBox/HSplit/ResultPanel" unique_id=1648550291]
+layout_mode = 0
+offset_left = 550.0
+offset_right = 905.0
+offset_bottom = 487.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/RaceResult/VBox/HSplit/ResultPanel/ScrollContainer" unique_id=346622389]
+layout_mode = 2
+
 [node name="Button_Suivant" type="Button" parent="CanvasLayer" unique_id=786176111]
 anchors_preset = 1
 anchor_left = 1.0
@@ -448,11 +562,14 @@ script = ExtResource("2_v8b1e")
 [node name="ClassRider" type="Node" parent="." unique_id=1225492977]
 script = ExtResource("6_ntf6d")
 
-[node name="Utils" type="Node" parent="." unique_id=1924187810]
-script = ExtResource("7_gihl2")
-
 [node name="ClassTeam" type="Node" parent="." unique_id=1597802393]
 script = ExtResource("10_mdugl")
+
+[node name="ClassRace" type="Node" parent="." unique_id=1288820438]
+script = ExtResource("15_8s0xj")
+
+[node name="Utils" type="Node" parent="." unique_id=1924187810]
+script = ExtResource("7_gihl2")
 
 [node name="Turn" type="Node" parent="." unique_id=209963566]
 script = ExtResource("16_2k0ke")
@@ -467,6 +584,8 @@ script = ExtResource("15_cecc8")
 [connection signal="button_down" from="CanvasLayer/HBoxContainer/Menu/Transfert" to="CanvasLayer/HBoxContainer/Menu" method="_on_transfert_button_down"]
 [connection signal="button_down" from="CanvasLayer/HBoxContainer/Menu/MailBox" to="CanvasLayer/HBoxContainer/Menu" method="_on_mail_box_button_down"]
 [connection signal="button_down" from="CanvasLayer/HBoxContainer/Menu/Meeting" to="CanvasLayer/HBoxContainer/Menu" method="_on_meeting_button_down"]
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/Menu/Calendar" to="CanvasLayer/HBoxContainer/Menu" method="_on_calendar_button_down"]
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/Menu/RaceResult" to="CanvasLayer/HBoxContainer/Menu" method="_on_race_result_button_down"]
 [connection signal="button_down" from="CanvasLayer/HBoxContainer/Rider/Rapport" to="CanvasLayer/HBoxContainer/Rider" method="_on_rapport_button_down"]
 [connection signal="button_down" from="CanvasLayer/Button_Suivant" to="Turn" method="_on_button_suivant_button_down"]
 [connection signal="button_down" from="CanvasLayer/Back" to="CanvasLayer/Back" method="_on_button_down"]

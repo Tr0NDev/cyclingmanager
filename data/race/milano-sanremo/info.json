@@ -1,0 +1,39 @@
+{
+    "realname": "milan-san-remo",
+    "name": "Milan–San Remo",
+    "description": "First held in 1907, Milan–San Remo is the longest professional one-day race and one of cycling’s five Monuments. Nicknamed 'La Classicissima', it runs from Milan to the Ligurian coast in Sanremo. Despite its length, the terrain is relatively flat until the decisive late climbs—the Cipressa and the Poggio di Sanremo—which create explosive finales favoring sprinters, puncheurs, and opportunists.",
+    "country": "Italy",
+    "category": "WT",
+    "type": "one-day",
+    "distance_km": 294,
+    "uci": 800,
+    "terrain": {
+        "cobbles":    0,
+        "gravel":     0,
+        "mountains":  5,
+        "hills":      25,
+        "flat":       70,
+        "summit_finish": false
+    },
+    "profile": {
+        "elevation_m": 2100,
+        "max_gradient_pct": 8,
+        "sectors": [
+            {"name": "Passo del Turchino",     "type": "asphalt", "length_km": 25.0, "difficulty": 2, "km_remaining": 150},
+            {"name": "Capo Mele",              "type": "asphalt", "length_km": 1.9,  "difficulty": 1, "km_remaining": 52},
+            {"name": "Capo Cervo",             "type": "asphalt", "length_km": 2.1,  "difficulty": 1, "km_remaining": 47},
+            {"name": "Capo Berta",             "type": "asphalt", "length_km": 2.0,  "difficulty": 2, "km_remaining": 40},
+            {"name": "Cipressa",               "type": "asphalt", "length_km": 5.6,  "difficulty": 4, "km_remaining": 22},
+            {"name": "Poggio di Sanremo",      "type": "asphalt", "length_km": 3.7,  "difficulty": 5, "km_remaining": 9}
+        ]
+    },
+    "key_stats": ["spr", "hll", "end"],
+    "date_in_season": "03-26",
+    "lastwinners": [
+        "Jasper Philipsen",
+        "Mathieu van der Poel",
+        "Matej Mohoric",
+        "Wout van Aert",
+        "Julian Alaphilippe"
+    ]
+}

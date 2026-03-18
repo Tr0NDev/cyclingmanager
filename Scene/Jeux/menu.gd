@@ -7,6 +7,8 @@ extends VBoxContainer
 @onready var transfert := $"../Transfert"
 @onready var mailbox := $"../MailBox"
 @onready var meeting := $"../Meeting"
+@onready var calendar := $"../Calendar"
+@onready var raceresult := $"../RaceResult"
 
 func _on_myteam_button_down() -> void:
 	Utils.hideall()
@@ -54,3 +56,13 @@ func _on_mail_box_button_down() -> void:
 func _on_meeting_button_down() -> void:
 	Utils.hideall()
 	meeting.show_meeting()
+
+
+func _on_calendar_button_down() -> void:
+	Utils.hideall()
+	calendar.show_calendar()
+
+
+func _on_race_result_button_down() -> void:
+	Utils.hideall()
+	raceresult.show_today()

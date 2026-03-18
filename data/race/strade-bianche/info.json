@@ -1,0 +1,36 @@
+{
+    "realname": "strade-bianche",
+    "name": "Strade Bianche",
+    "description": "Initiated in 2007 as a spin-off from the popular L’Eroica granfondo - a mass-participation cyclosportive held on the iconic sterrati, or white gravel roads (Strade Bianche), and restricted to vintage bicycles and clothing - the race quickly gained attention. In 2008, it was repositioned into the spring classics calendar, and with its gravel sectors and iconic finish on Siena’s UNESCO World Heritage-listed Piazza del Campo, it rapidly became a favourite among both riders and fans.",
+    "country": "Italy",
+    "category": "WT",
+    "type": "one-day",
+    "distance_km": 215,
+    "terrain": {
+        "cobbles":    35,
+        "gravel":     63,
+        "mountains":  0,
+        "hills":      45,
+        "flat":       20,
+        "summit_finish": true
+    },
+    "profile": {
+        "elevation_m": 3400,
+        "max_gradient_pct": 18,
+        "sectors": [
+            {"name": "Monte Sante Marie", "type": "gravel", "length_km": 11.5, "difficulty": 3, "km_remaining": 52},
+            {"name": "Colle Pinzuto",     "type": "gravel", "length_km": 2.4,  "difficulty": 4, "km_remaining": 15},
+            {"name": "Le Tolfe",          "type": "gravel", "length_km": 1.1,  "difficulty": 3, "km_remaining": 12},
+            {"name": "Saint Caterina ramp","type": "concrete","length_km": 0.7,  "difficulty": 5, "km_remaining": 5}
+        ]
+    },
+    "key_stats": ["cob", "hll", "flt"],
+    "date_in_season": "03-25",
+    "lastwinners": [
+        "Tadej Pogacar",
+        "Tadej Pogacar",
+        "Tadej Pogacar",
+        "Pidcock Thomas",
+        "Tadej Pogacar"
+    ]
+}

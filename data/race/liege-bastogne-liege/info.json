@@ -1,0 +1,43 @@
+{
+    "realname": "liege-bastogne-liege",
+    "name": "Liège–Bastogne–Liège",
+    "description": "First held in 1892, Liège–Bastogne–Liège is the oldest of cycling’s five Monuments, earning it the nickname 'La Doyenne'. The race traverses the Ardennes region of Belgium, featuring relentless short, steep climbs known as côtes. Its selective terrain and accumulation of elevation make it one of the most demanding one-day races on the calendar, typically favoring climbers and puncheurs. The finale often unfolds on iconic climbs before the run-in to Liège.",
+    "country": "Belgium",
+    "category": "WT",
+    "type": "one-day",
+    "distance_km": 258,
+    "uci": 800,
+    "terrain": {
+        "cobbles":    5,
+        "gravel":     0,
+        "mountains":  10,
+        "hills":      70,
+        "flat":       15,
+        "summit_finish": false
+    },
+    "profile": {
+        "elevation_m": 4300,
+        "max_gradient_pct": 20,
+        "sectors": [
+            {"name": "Côte de Saint-Roch",        "type": "asphalt", "length_km": 1.0, "difficulty": 2, "km_remaining": 180},
+            {"name": "Côte de Wanne",             "type": "asphalt", "length_km": 3.6, "difficulty": 3, "km_remaining": 95},
+            {"name": "Côte de Stockeu",           "type": "asphalt", "length_km": 1.0, "difficulty": 4, "km_remaining": 90},
+            {"name": "Côte de Haute-Levée",       "type": "asphalt", "length_km": 3.6, "difficulty": 3, "km_remaining": 85},
+            {"name": "Col du Rosier",             "type": "asphalt", "length_km": 4.4, "difficulty": 3, "km_remaining": 75},
+            {"name": "Côte de Desnié",            "type": "asphalt", "length_km": 1.6, "difficulty": 2, "km_remaining": 70},
+            {"name": "Côte de La Redoute",        "type": "asphalt", "length_km": 2.0, "difficulty": 5, "km_remaining": 35},
+            {"name": "Côte des Forges",           "type": "asphalt", "length_km": 1.3, "difficulty": 3, "km_remaining": 30},
+            {"name": "Côte de la Roche-aux-Faucons","type": "asphalt","length_km": 1.3, "difficulty": 5, "km_remaining": 13},
+            {"name": "Côte de Saint-Nicolas",     "type": "asphalt", "length_km": 1.2, "difficulty": 4, "km_remaining": 6}
+        ]
+    },
+    "key_stats": ["clm", "hll", "end"],
+    "date_in_season": "04-15",
+    "lastwinners": [
+        "Tadej Pogacar",
+        "Remco Evenepoel",
+        "Remco Evenepoel",
+        "Tadej Pogacar",
+        "Primoz Roglic"
+    ]
+}

@@ -10,8 +10,20 @@ var blocked_riders: Dictionary = {}
 var total_days:     int    = 0
 var favoris:        Array  = []
 var transfer_offers: Dictionary = {}
+var transfers_log: Array = []  # [{name, from, to, day}]
+var race_list: Array = []  # Array de Race
+var upcoming_race: String = ""
+var race_selection: Dictionary = {}  # {race_folder: [{rider, role}]}
+var last_race_lineups: Dictionary = {}
+var last_race_classement: Array = []
 
 var date := {
+	"year":  2026,
+	"month": 3,
+	"day":   14
+}
+
+var firstdate := {
 	"year":  2026,
 	"month": 3,
 	"day":   14
@@ -21,8 +33,16 @@ var date := {
 func _ready() -> void:
 	_init_save()
 	load_all_teams()
+	load_all_races()
 	load_game()
-
+	if date == firstdate:
+		reset_all_uci()
+		
+func reset_all_uci() -> void:
+	var my_team := Team.load_team(Game.myteam)
+	my_team.reset_uci()
+	for team in Game.team_list:
+		team.reset_uci()
 
 func _init_save() -> void:
 	if DirAccess.dir_exists_absolute("user://save"):
@@ -68,6 +88,20 @@ func load_all_teams() -> void:
 	dir.list_dir_end()
 
 
+
+func load_all_races() -> void:
+	race_list.clear()
+	var dir := DirAccess.open("res://data/race/")
+	if dir == null:
+		return
+	dir.list_dir_begin()
+	var folder := dir.get_next()
+	while folder != "":
+		if dir.current_is_dir():
+			race_list.append(Race.load_race(folder))
+		folder = dir.get_next()
+	dir.list_dir_end()
+
 func save_game() -> void:
 	var data := {
 		"myteam":          myteam,
@@ -77,6 +111,8 @@ func save_game() -> void:
 		"blocked_riders":  blocked_riders,
 		"pending_mails":   pending_mails,
 		"transfer_offers": _serialize_transfer_offers(),
+		"transfers_log":   transfers_log,  # ← manquait ici
+		"race_selection": race_selection,
 	}
 	DirAccess.make_dir_recursive_absolute("user://save")
 	var file := FileAccess.open("user://save/gamedata.json", FileAccess.WRITE)
@@ -86,9 +122,11 @@ func save_game() -> void:
 	file.store_string(JSON.stringify(data, "\t"))
 	file.close()
 	print("💾 Partie sauvegardée")
+	save_all_uci()
 
 
 func load_game() -> void:
+	
 	var path := "user://save/gamedata.json"
 	if not FileAccess.file_exists(path):
 		return
@@ -117,6 +155,15 @@ func load_game() -> void:
 		date["year"]  = int(d.get("year",  2026))
 		date["month"] = int(d.get("month", 3))
 		date["day"]   = int(d.get("day",   14))
+	
+	var tl = data.get("transfers_log", [])
+	print("transfers_log chargé: ", tl)
+	if tl is Array:
+		transfers_log = tl
+		
+	var rs = data.get("race_selection", {})
+	if rs is Dictionary:
+		race_selection = rs
 
 	transfer_offers = {}
 	var raw_offers = data.get("transfer_offers", {})
@@ -188,6 +235,12 @@ func switch_team(rider: Rider, from_team: String, to_team: String, transfer_amou
 
 	_save_team_csv(from)
 	_save_team_csv(to)
+	Game.transfers_log.append({
+		"name": rider.full_name(),
+		"from": from_team,
+		"to":   to_team,
+		"day":  Game.total_days
+	})
 	print("🔄 %s transféré de %s vers %s (montant : %s €)" % [
 		rider.full_name(), from_team, to_team, _fmt(transfer_amount)
 	])
@@ -215,6 +268,11 @@ func _save_team_csv(team: Team) -> void:
 		])
 	file.close()
 
+func save_all_uci() -> void:
+	var my_team := Team.load_team(myteam)
+	_save_team_json(my_team)
+	for team in team_list:
+		_save_team_json(team)
 
 func _save_team_json(team: Team) -> void:
 	var path := "user://save/team/%s/info.json" % team.folder

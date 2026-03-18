@@ -12,3 +12,6 @@ func hideall() -> void:
 	get_tree().root.get_node("Jeux/CanvasLayer/HBoxContainer/Transfert").hide()
 	get_tree().root.get_node("Jeux/CanvasLayer/HBoxContainer/MailBox").hide()
 	get_tree().root.get_node("Jeux/CanvasLayer/HBoxContainer/Meeting").hide()
+	get_tree().root.get_node("Jeux/CanvasLayer/HBoxContainer/Calendar").hide()
+	get_tree().root.get_node("Jeux/CanvasLayer/HBoxContainer/Race").hide()
+	get_tree().root.get_node("Jeux/CanvasLayer/HBoxContainer/RaceResult").hide()

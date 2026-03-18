@@ -14,6 +14,7 @@ const STAR_RIGHT_HALF_BLUE  := "res://data/image/right_half_blue_star.png"
 @onready var teamname    := $TeamLabel
 @onready var info_label  := $InfoLabel
 @onready var sort_btns   := $SortRow
+@onready var mercato_vbox := $Mercato/VBoxContainer
 
 const SORT_FIELDS := ["cob", "hll", "mtn", "gc", "itt", "spr", "age", "note", "potential"]
 const SORT_LABELS := ["COB", "HLL", "MTN", "GC",  "ITT", "SPR", "Âge", "Note", "Potentiel"]
@@ -48,6 +49,7 @@ func show_team(team_folder: String) -> void:
 	_current_riders = team.riders
 	_display()
 	show()
+	_display_transfers(team_folder)
 
 
 func _build_sort_buttons() -> void:
@@ -172,6 +174,74 @@ func _make_row(rider) -> PanelContainer:
 
 	return panel
 
+
+func _display_transfers(team_folder: String) -> void:
+	for child in mercato_vbox.get_children():
+		child.queue_free()
+
+	var arrivals := []
+	var departures := []
+
+	for t in Game.transfers_log:
+		if t["to"] == team_folder:
+			arrivals.append(t)
+		elif t["from"] == team_folder:
+			departures.append(t)
+
+	if arrivals.is_empty() and departures.is_empty():
+		var empty_lbl := Label.new()
+		empty_lbl.text = "Aucun transfert"
+		mercato_vbox.add_child(empty_lbl)
+		return
+
+	if not arrivals.is_empty():
+		mercato_vbox.add_child(_section_label("ARRIVÉES"))
+		for t in arrivals:
+			var btn := Button.new()
+			btn.text = "🟢 ← %s" % t["name"]
+			btn.add_theme_color_override("font_color", Color(0.2, 0.9, 0.3))
+			btn.flat = true
+			btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+			btn.connect("pressed", func():
+				var rider = _find_rider(t["name"])
+				if rider:
+					Utils.hideall()
+					$"../Rider".show_rider(rider)
+			)
+			mercato_vbox.add_child(btn)
+
+	if not departures.is_empty():
+		mercato_vbox.add_child(_section_label("DÉPARTS"))
+		for t in departures:
+			var btn := Button.new()
+			btn.text = "🔴 → %s" % t["name"]
+			btn.add_theme_color_override("font_color", Color(0.9, 0.2, 0.2))
+			btn.flat = true
+			btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+			btn.connect("pressed", func():
+				var rider = _find_rider(t["name"])
+				if rider:
+					Utils.hideall()
+					$"../Rider".show_rider(rider)
+			)
+			mercato_vbox.add_child(btn)
+
+func _section_label(title: String) -> Label:
+	var lbl := Label.new()
+	lbl.text = title
+	lbl.add_theme_font_size_override("font_size", 11)
+	return lbl
+
+func _separator() -> HSeparator:
+	return HSeparator.new()
+
+func _find_rider(full_name: String):
+	for team in Game.team_list:
+		var r = team.get_rider_by_name(full_name)
+		if r:
+			return r
+	var mt := Team.load_team(Game.myteam)
+	return mt.get_rider_by_name(full_name)
 
 func _on_rider_pressed(rider) -> void:
 	Utils.hideall()

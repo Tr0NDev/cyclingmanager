@@ -88,3 +88,27 @@ func get_rider(firstname: String, lastname: String):
 		if rider.firstname == firstname and rider.lastname == lastname:
 			return rider
 	return null
+	
+func reset_uci() -> void:
+	uci = 0
+	# Sauvegarde dans le JSON
+	var json_path := "user://save/team/%s/info.json" % folder
+	var data := {}
+
+	# Charge le JSON existant pour ne pas écraser les autres champs
+	if FileAccess.file_exists(json_path):
+		var file := FileAccess.open(json_path, FileAccess.READ)
+		if file:
+			var raw := file.get_as_text().strip_edges()
+			if raw.begins_with("\ufeff"): raw = raw.substr(1)
+			file.close()
+			var json := JSON.new()
+			if json.parse(raw) == OK and json.get_data() is Dictionary:
+				data = json.get_data()
+
+	data["uci"] = 0
+
+	var out := FileAccess.open(json_path, FileAccess.WRITE)
+	if out:
+		out.store_string(JSON.stringify(data, "\t"))
+		out.close()
