@@ -460,6 +460,24 @@ func _on_validate_race_selection() -> void:
 
 func _on_action(action: String) -> void:
 	Utils.hideall()
+	if action.begins_with("meeting_salary_"):
+		var parts: Array = action.substr("meeting_salary_".length()).split("_")
+		if parts.size() >= 3:
+			var montant: int = int(parts[parts.size() - 1])
+			var rider_name: String = " ".join(parts.slice(0, parts.size() - 1))
+			var team := Team.load_team(Game.myteam)
+			var rider = team.get_rider_by_name(rider_name)
+			if rider:
+				$"../Meeting".open("salary", rider, montant)
+		return
+	if action.begins_with("meeting_prolongation_"):
+		var rider_name_key: String = action.substr("meeting_prolongation_".length())
+		var rider_name: String = rider_name_key.replace("_", " ")
+		var team := Team.load_team(Game.myteam)
+		var rider = team.get_rider_by_name(rider_name)
+		if rider:
+			$"../Meeting".open("prolongation", rider)
+		return
 	match action:
 		"myteam":    $"../Team".show_team(Game.myteam)
 		"transfers": $"../Transfert".show_transfers()
@@ -467,8 +485,7 @@ func _on_action(action: String) -> void:
 		"finance":   $"../Finance".show_finance()
 		"teams":     $"../Teams".show_teams()
 		"meeting_transfer":
-			var meeting := $"../Meeting"
-			meeting.open("transfer", Game.rapport_rider)
+			$"../Meeting".open("transfer", Game.rapport_rider)
 
 
 func _update_badge() -> void:

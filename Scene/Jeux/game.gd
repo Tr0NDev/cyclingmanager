@@ -1,6 +1,6 @@
 extends Node
 
-var myteam:         String = "alpecin-premier-tech"
+var myteam:         String = "lotto-intermarche"
 var myteam_riders:  Array  = []
 var team_list:      Array  = []
 var rapportlist:    Array  = []
@@ -10,12 +10,14 @@ var blocked_riders: Dictionary = {}
 var total_days:     int    = 0
 var favoris:        Array  = []
 var transfer_offers: Dictionary = {}
-var transfers_log: Array = []  # [{name, from, to, day}]
-var race_list: Array = []  # Array de Race
+var transfers_log: Array = []
+var race_list: Array = []
 var upcoming_race: String = ""
-var race_selection: Dictionary = {}  # {race_folder: [{rider, role}]}
+var race_selection: Dictionary = {}
 var last_race_lineups: Dictionary = {}
 var last_race_classement: Array = []
+var salary_requests_log: Array = []
+var stage_race_state: Dictionary = {}  # ← nouveau
 
 var date := {
 	"year":  2026,
@@ -37,12 +39,15 @@ func _ready() -> void:
 	load_game()
 	if date == firstdate:
 		reset_all_uci()
-		
+
+
 func reset_all_uci() -> void:
+	Game.salary_requests_log.clear()
 	var my_team := Team.load_team(Game.myteam)
 	my_team.reset_uci()
 	for team in Game.team_list:
 		team.reset_uci()
+
 
 func _init_save() -> void:
 	if DirAccess.dir_exists_absolute("user://save"):
@@ -88,7 +93,6 @@ func load_all_teams() -> void:
 	dir.list_dir_end()
 
 
-
 func load_all_races() -> void:
 	race_list.clear()
 	var dir := DirAccess.open("res://data/race/")
@@ -102,17 +106,20 @@ func load_all_races() -> void:
 		folder = dir.get_next()
 	dir.list_dir_end()
 
+
 func save_game() -> void:
 	var data := {
-		"myteam":          myteam,
-		"total_days":      total_days,
-		"date":            date,
-		"favoris":         favoris,
-		"blocked_riders":  blocked_riders,
-		"pending_mails":   pending_mails,
-		"transfer_offers": _serialize_transfer_offers(),
-		"transfers_log":   transfers_log,  # ← manquait ici
-		"race_selection": race_selection,
+		"myteam":             myteam,
+		"total_days":         total_days,
+		"date":               date,
+		"favoris":            favoris,
+		"blocked_riders":     blocked_riders,
+		"pending_mails":      pending_mails,
+		"transfer_offers":    _serialize_transfer_offers(),
+		"transfers_log":      transfers_log,
+		"race_selection":     race_selection,
+		"salary_requests_log": salary_requests_log,
+		"stage_race_state":   stage_race_state,  # ← nouveau
 	}
 	DirAccess.make_dir_recursive_absolute("user://save")
 	var file := FileAccess.open("user://save/gamedata.json", FileAccess.WRITE)
@@ -126,7 +133,6 @@ func save_game() -> void:
 
 
 func load_game() -> void:
-	
 	var path := "user://save/gamedata.json"
 	if not FileAccess.file_exists(path):
 		return
@@ -155,15 +161,22 @@ func load_game() -> void:
 		date["year"]  = int(d.get("year",  2026))
 		date["month"] = int(d.get("month", 3))
 		date["day"]   = int(d.get("day",   14))
-	
+
 	var tl = data.get("transfers_log", [])
-	print("transfers_log chargé: ", tl)
 	if tl is Array:
 		transfers_log = tl
-		
+
+	var srl = data.get("salary_requests_log", [])
+	if srl is Array:
+		salary_requests_log = srl
+
 	var rs = data.get("race_selection", {})
 	if rs is Dictionary:
 		race_selection = rs
+
+	var srs = data.get("stage_race_state", {})  # ← nouveau
+	if srs is Dictionary:
+		stage_race_state = srs
 
 	transfer_offers = {}
 	var raw_offers = data.get("transfer_offers", {})
@@ -268,11 +281,13 @@ func _save_team_csv(team: Team) -> void:
 		])
 	file.close()
 
+
 func save_all_uci() -> void:
 	var my_team := Team.load_team(myteam)
 	_save_team_json(my_team)
 	for team in team_list:
 		_save_team_json(team)
+
 
 func _save_team_json(team: Team) -> void:
 	var path := "user://save/team/%s/info.json" % team.folder

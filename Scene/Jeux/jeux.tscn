@@ -424,6 +424,9 @@ layout_mode = 2
 [node name="TransferInput" type="SpinBox" parent="CanvasLayer/HBoxContainer/Meeting/VBox/OfferRow" unique_id=1648068951]
 layout_mode = 2
 
+[node name="ContractSpinBox" type="SpinBox" parent="CanvasLayer/HBoxContainer/Meeting/VBox/OfferRow" unique_id=346823770]
+layout_mode = 2
+
 [node name="PromiseRow" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Meeting/VBox" unique_id=1092104816]
 layout_mode = 2
 

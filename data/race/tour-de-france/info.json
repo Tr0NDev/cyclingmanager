@@ -1,0 +1,130 @@
+{
+	"realname": "tour-de-france",
+	"name": "Tour de France",
+	"description": "The most prestigious stage race in cycling, held annually in July. 21 stages over 23 days traversing France and occasionally neighbouring countries, featuring flat sprint stages, mountain passes, and individual time trials.",
+	"country": "France",
+	"category": "WT",
+	"type": "stage-race",
+	"uci": 0,
+	"stages": [
+		{
+			"stage_number": 1,
+			"name": "Étape 1 — Bilbao › Bilbao",
+			"distance_km": 182,
+			"date_offset": 0,
+			"terrain": {
+				"cobbles":   0,
+				"gravel":    0,
+				"mountains": 0,
+				"hills":     60,
+				"flat":      40,
+				"summit_finish": false
+			},
+			"profile": {
+				"elevation_m": 3500,
+				"max_gradient_pct": 14,
+				"sectors": [
+					{"name": "Alto de Vivero",  "type": "asphalt", "length_km": 5.2, "difficulty": 3, "km_remaining": 25},
+					{"name": "Alto de Arraiz",  "type": "asphalt", "length_km": 3.1, "difficulty": 4, "km_remaining": 8}
+				]
+			},
+			"key_stats": ["hll", "spr", "flt"],
+			"stage_type": "hilly"
+		},
+		{
+			"stage_number": 2,
+			"name": "Étape 2 — Vitoria-Gasteiz › San Sebastián",
+			"distance_km": 209,
+			"date_offset": 1,
+			"terrain": {
+				"cobbles":   0,
+				"gravel":    0,
+				"mountains": 0,
+				"hills":     30,
+				"flat":      70,
+				"summit_finish": false
+			},
+			"profile": {
+				"elevation_m": 1200,
+				"max_gradient_pct": 6,
+				"sectors": []
+			},
+			"key_stats": ["spr", "flt"],
+			"stage_type": "flat"
+		},
+		{
+			"stage_number": 3,
+			"name": "Étape 3 — Amorebieta › Bayonne (CLM)",
+			"distance_km": 22,
+			"date_offset": 2,
+			"terrain": {
+				"cobbles":   0,
+				"gravel":    0,
+				"mountains": 0,
+				"hills":     10,
+				"flat":      90,
+				"summit_finish": false
+			},
+			"profile": {
+				"elevation_m": 180,
+				"max_gradient_pct": 4,
+				"sectors": []
+			},
+			"key_stats": ["itt", "flt"],
+			"stage_type": "tt"
+		},
+		{
+			"stage_number": 4,
+			"name": "Étape 4 — Dax › Nogaro",
+			"distance_km": 182,
+			"date_offset": 3,
+			"terrain": {
+				"cobbles":   0,
+				"gravel":    0,
+				"mountains": 0,
+				"hills":     5,
+				"flat":      95,
+				"summit_finish": false
+			},
+			"profile": {
+				"elevation_m": 400,
+				"max_gradient_pct": 3,
+				"sectors": []
+			},
+			"key_stats": ["spr", "flt"],
+			"stage_type": "flat"
+		},
+		{
+			"stage_number": 5,
+			"name": "Étape 5 — Pau › Laruns",
+			"distance_km": 163,
+			"date_offset": 4,
+			"terrain": {
+				"cobbles":   0,
+				"gravel":    0,
+				"mountains": 70,
+				"hills":     20,
+				"flat":      10,
+				"summit_finish": true
+			},
+			"profile": {
+				"elevation_m": 4200,
+				"max_gradient_pct": 16,
+				"sectors": [
+					{"name": "Col de Marie-Blanque", "type": "asphalt", "length_km": 9.5, "difficulty": 4, "km_remaining": 45},
+					{"name": "Col d'Aubisque",        "type": "asphalt", "length_km": 16.6,"difficulty": 5, "km_remaining": 0}
+				]
+			},
+			"key_stats": ["mtn", "gc"],
+			"stage_type": "mountain"
+		}
+	],
+	"date_in_season": "03-24",
+	"lastwinners": [
+		"Jonas Vingegaard",
+		"Jonas Vingegaard",
+		"Tadej Pogacar",
+		"Tadej Pogacar",
+        "Egan Bernal"
+	]
+}

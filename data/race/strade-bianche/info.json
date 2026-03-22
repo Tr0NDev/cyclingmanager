@@ -6,6 +6,7 @@
     "category": "WT",
     "type": "one-day",
     "distance_km": 215,
+    "uci": 800,
     "terrain": {
         "cobbles":    35,
         "gravel":     63,

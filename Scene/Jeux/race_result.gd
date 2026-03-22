@@ -1117,6 +1117,205 @@ func _display_results(classement: Array, dnf: Array) -> void:
 			result_vbox.add_child(row)
 
 
+func show_stage_result(race: Race, stage_data: Dictionary, all_lineups: Dictionary, state: Dictionary) -> void:
+	Utils.last_panel    = Utils.current_panel
+	Utils.current_panel = self
+
+	var stage_num:  int    = int(stage_data.get("stage_number", 1))
+	var stage_name: String = stage_data.get("name", "Étape %d" % stage_num)
+	var total:      int    = race.get_stage_count()
+
+	race_title.text = "🏁 %s — Étape %d/%d : %s" % [race.name, stage_num, total, stage_name]
+
+	log_vbox.size_flags_horizontal    = Control.SIZE_EXPAND_FILL
+	result_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	for child in log_vbox.get_children():    child.queue_free()
+	for child in result_vbox.get_children(): child.queue_free()
+
+	# Race temporaire pour la simulation
+	var stage_race        := Race.new()
+	stage_race.name        = stage_name
+	stage_race.distance_km = int(stage_data.get("distance_km", 150))
+	stage_race.terrain     = stage_data.get("terrain", {})
+	stage_race.profile     = stage_data.get("profile", {})
+	stage_race.key_stats   = stage_data.get("key_stats", ["flt"])
+	stage_race.type        = "one-day"
+	stage_race.uci         = 0
+	stage_race.folder      = race.folder
+	stage_race.lastwinners = []
+	stage_race.stages      = []
+
+	var result := _simulate_race(stage_race, all_lineups)
+	Game.last_race_classement = result["classement"]
+
+	_display_log(result["log"])
+	_display_stage_results(result["classement"], result["dnf"], state, stage_data)
+	show()
+	
+	
+func _display_stage_results(classement: Array, dnf: Array, state: Dictionary, stage_data: Dictionary) -> void:
+	var stage_title := Label.new()
+	stage_title.text = "🏅 Résultat de l'étape"
+	stage_title.add_theme_font_size_override("font_size", 13)
+	result_vbox.add_child(stage_title)
+	result_vbox.add_child(HSeparator.new())
+
+	for i in mini(classement.size(), 20):
+		var r   = classement[i]
+		var row := HBoxContainer.new()
+		var pos := Label.new(); pos.text = "%d." % (i + 1); pos.custom_minimum_size.x = 28
+		row.add_child(pos)
+		var name := Label.new()
+		name.text = r["name"]
+		name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if r.get("team", "") == Game.myteam:
+			name.add_theme_color_override("font_color", Color(0.3, 0.8, 1.0))
+		row.add_child(name)
+		var time := Label.new()
+		time.custom_minimum_size.x = 80
+		time.add_theme_font_size_override("font_size", 10)
+		if i == 0:
+			time.text = _fmt_time(r.get("time_sec", 0.0))
+		else:
+			time.text = _fmt_gap(r.get("time_gap", 0))
+			time.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
+		row.add_child(time)
+		if i == 0:   var m := Label.new(); m.text = "🥇"; row.add_child(m)
+		elif i == 1: var m := Label.new(); m.text = "🥈"; row.add_child(m)
+		elif i == 2: var m := Label.new(); m.text = "🥉"; row.add_child(m)
+		result_vbox.add_child(row)
+
+	# ── Classement général ────────────────────────────────────
+	result_vbox.add_child(HSeparator.new())
+	var gc_title := Label.new()
+	gc_title.text = "🟡 Classement général"
+	gc_title.add_theme_font_size_override("font_size", 12)
+	gc_title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.1))
+	result_vbox.add_child(gc_title)
+
+	var gc: Array = state.get("gc", [])
+	if not gc.is_empty():
+		var stage_times: Dictionary = {}
+		for r in classement:
+			stage_times[r.get("name", "")] = r.get("time_sec", 0.0)
+
+		var leader_stage_time: float = stage_times.get(gc[0]["name"], 0.0)
+		if leader_stage_time == 0.0 and not classement.is_empty():
+			leader_stage_time = float(classement[0].get("time_sec", 0.0))
+
+		var gc_leader_cumul: float = float(gc[0].get("time_sec", 0.0)) + leader_stage_time
+
+		for i in mini(gc.size(), 10):
+			var r   = gc[i]
+			var row := HBoxContainer.new()
+			var pos := Label.new(); pos.text = "%d." % (i + 1); pos.custom_minimum_size.x = 28
+			row.add_child(pos)
+			var nm := Label.new()
+			nm.text = r["name"]
+			nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			if r.get("team", "") == Game.myteam:
+				nm.add_theme_color_override("font_color", Color(0.3, 0.8, 1.0))
+			row.add_child(nm)
+			var gap := Label.new()
+			gap.custom_minimum_size.x = 90
+			gap.add_theme_font_size_override("font_size", 10)
+			if i == 0:
+				gap.text = _fmt_time(gc_leader_cumul)
+				gap.add_theme_color_override("font_color", Color(1.0, 0.85, 0.1))
+			else:
+				var rider_stage_time: float = stage_times.get(r["name"], leader_stage_time)
+				var rider_cumul: float = float(r.get("time_sec", 0.0)) + rider_stage_time
+				var gc_gap: int = int(rider_cumul - gc_leader_cumul)
+				gap.text = _fmt_gap(gc_gap)
+				gap.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
+			row.add_child(gap)
+			result_vbox.add_child(row)
+
+	# ── Maillots ──────────────────────────────────────────────
+	_display_jersey_points(state.get("points",   []), "🟢 Maillot vert",   Color(0.2, 0.9, 0.3))
+	_display_jersey_points(state.get("mountain", []), "🔴 Maillot à pois", Color(1.0, 0.3, 0.3))
+	_display_jersey_time( state.get("youth",    []), "⬜ Maillot blanc",  Color(0.9, 0.9, 0.9), 3)
+
+	# ── DNF ───────────────────────────────────────────────────
+	if not dnf.is_empty():
+		result_vbox.add_child(HSeparator.new())
+		var dnf_title := Label.new()
+		dnf_title.text = "❌ Abandons"
+		dnf_title.add_theme_color_override("font_color", Color(0.7, 0.35, 0.35))
+		result_vbox.add_child(dnf_title)
+		for r in dnf:
+			var row := HBoxContainer.new()
+			var icon := Label.new(); icon.text = "🚨"; icon.custom_minimum_size.x = 28
+			row.add_child(icon)
+			var nm := Label.new()
+			nm.text = r["name"]
+			nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			nm.add_theme_color_override("font_color", Color(0.55, 0.35, 0.35))
+			row.add_child(nm)
+			result_vbox.add_child(row)
+
+
+func _display_jersey_time(rankings: Array, title: String, color: Color, max_shown: int = 3) -> void:
+	if rankings.is_empty(): return
+	result_vbox.add_child(HSeparator.new())
+	var lbl := Label.new()
+	lbl.text = title
+	lbl.add_theme_font_size_override("font_size", 11)
+	lbl.add_theme_color_override("font_color", color)
+	result_vbox.add_child(lbl)
+	var leader_time: float = float(rankings[0].get("time_sec", 0.0))
+	for i in mini(rankings.size(), max_shown):
+		var r   = rankings[i]
+		var row := HBoxContainer.new()
+		var pos := Label.new(); pos.text = "%d." % (i + 1); pos.custom_minimum_size.x = 24
+		row.add_child(pos)
+		var nm := Label.new()
+		nm.text = r["name"]
+		nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if r.get("team", "") == Game.myteam:
+			nm.add_theme_color_override("font_color", Color(0.3, 0.8, 1.0))
+		row.add_child(nm)
+		var val := Label.new()
+		val.custom_minimum_size.x = 80
+		val.add_theme_font_size_override("font_size", 10)
+		if i == 0:
+			val.text = "Leader"
+			val.add_theme_color_override("font_color", color)
+		else:
+			var gap_sec: int = int(float(r.get("time_sec", leader_time)) - leader_time)
+			val.text = _fmt_gap(gap_sec)
+			val.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
+		row.add_child(val)
+		result_vbox.add_child(row)
+
+
+func _display_jersey_points(rankings: Array, title: String, color: Color) -> void:
+	if rankings.is_empty(): return
+	result_vbox.add_child(HSeparator.new())
+	var lbl := Label.new()
+	lbl.text = title
+	lbl.add_theme_font_size_override("font_size", 11)
+	lbl.add_theme_color_override("font_color", color)
+	result_vbox.add_child(lbl)
+	for i in mini(rankings.size(), 3):
+		var r   = rankings[i]
+		var row := HBoxContainer.new()
+		var pos := Label.new(); pos.text = "%d." % (i + 1); pos.custom_minimum_size.x = 24
+		row.add_child(pos)
+		var nm := Label.new()
+		nm.text = r["name"]
+		nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if r.get("team", "") == Game.myteam:
+			nm.add_theme_color_override("font_color", Color(0.3, 0.8, 1.0))
+		row.add_child(nm)
+		var val := Label.new()
+		val.text = "%d pts" % r.get("points", 0)
+		val.custom_minimum_size.x = 60
+		val.add_theme_font_size_override("font_size", 10)
+		val.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
+		row.add_child(val)
+		result_vbox.add_child(row)
+
 func _avg_perf(riders: Array) -> float:
 	if riders.is_empty(): return 0.0
 	var total: float = 0.0
